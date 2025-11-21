@@ -58,9 +58,6 @@ RULES_JSON = """[
 # Parse rules
 RULES = json.loads(RULES_JSON)
 
-# ---------------------------
-# Utility: evaluate a single condition
-# ---------------------------
 def eval_condition(value: Any, op: str, target: Any) -> bool:
     """
     Evaluate condition value op target.
@@ -81,9 +78,6 @@ def eval_condition(value: Any, op: str, target: Any) -> bool:
         return False
     return False
 
-# ---------------------------
-# Rule evaluator
-# ---------------------------
 def evaluate_rules(applicant: Dict[str, Any], rules: List[Dict]) -> Tuple[Dict, List[Dict]]:
     """
     Evaluate rules against applicant.
@@ -118,9 +112,6 @@ def evaluate_rules(applicant: Dict[str, Any], rules: List[Dict]) -> Tuple[Dict, 
         }
     return selected, matched_sorted
 
-# ---------------------------
-# Streamlit UI
-# ---------------------------
 st.set_page_config(page_title="Scholarship Advisory (Rule-based)", layout="centered")
 st.title("Scholarship Advisory — Rule-based System")
 
@@ -174,3 +165,4 @@ st.markdown("""
 - Supported conditional operators: `>=`, `<=`, `>`, `<`, `==`.
 - If no rule matches, the system returns `NO_MATCH` for manual review.
 """)
+
